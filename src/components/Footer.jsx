@@ -1,10 +1,10 @@
-import Facebook from "../assets/social icons/facebook.svg";
-import Twitter from "../assets/social icons/twitter.svg";
-import Youtube from "../assets/social icons/youtube.svg";
-import Instagram from "../assets/social icons/instagram.svg";
-import Visa from "../assets/payment icons/Visa.png";
-import PayPal from "../assets/payment icons/PayPal.png";
-import Mastercard from "../assets/payment icons/Mastercard.png";
+import Facebook from "../assets/socialIcons/facebook.svg";
+import Twitter from "../assets/socialIcons/twitter.svg";
+import Youtube from "../assets/socialIcons/youtube.svg";
+import Instagram from "../assets/socialIcons/instagram.svg";
+import Visa from "../assets/paymentIcons/Visa.png";
+import PayPal from "../assets/paymentIcons/PayPal.png";
+import Mastercard from "../assets/paymentIcons/Mastercard.png";
 
 const Footer = () => {
   return (
