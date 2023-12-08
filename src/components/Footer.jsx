@@ -4,7 +4,7 @@ import Youtube from "../assets/socialIcons/youtube.svg";
 import Instagram from "../assets/socialIcons/instagram.svg";
 import Visa from "../assets/paymentIcons/Visa.png";
 import PayPal from "../assets/paymentIcons/PayPal.png";
-import Mastercard from "../assets/paymentIcons/Mastercard.png";
+import Mastercard from "../assets/paymentIcons/MasterCard.png";
 
 const Footer = () => {
   return (
