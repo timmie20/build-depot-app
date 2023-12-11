@@ -1,6 +1,6 @@
 const Testimonial = ({ item }) => {
   return (
-    <div className="font-Inter w-[300px] bg-slate-50 p-4 md:w-[500px]">
+    <div className="min-h-fit font-Inter w-[300px] bg-slate-50 p-4 md:w-[500px]">
       <svg
         width="41"
         height="40"
