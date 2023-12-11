@@ -1,11 +1,16 @@
 import React from "react";
 import { BsFilterRight } from "react-icons/bs";
 import DistributorStore from "../components/DistributorStore";
+import { useNavigate } from "react-router-dom";
 
 const DistributorsPage = () => {
+  const navigate = useNavigate();
   return (
-    <div className="container mx-auto my-10 font-calSans px-5">
-      <aside className="flex items-center gap-3 text-gray-100 cursor-pointer">
+    <div className="max-w-screen-xl mx-auto my-10 font-calSans px-5">
+      <aside
+        className="flex items-center gap-3 text-gray-100 cursor-pointer"
+        onClick={() => navigate("/")}
+      >
         <svg
           width="28"
           height="24"

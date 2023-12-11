@@ -10,7 +10,7 @@ import Testimonials from "../components/Testimonials";
 const HomePage = () => {
   return (
     <>
-      <div className="mt-10 container mx-auto md:mt-14">
+      <div className="mt-10 max-w-screen-xl mx-auto md:mt-14">
         <section className="flex flex-wrap px-5 gap-3 md:items-center lg:flex-nowrap">
           <div className="w-full">
             <img
@@ -93,7 +93,7 @@ const HomePage = () => {
           </div>
         </section>
       </div>
-      <div className="w-full min-h-fit flex justify-center my-20">
+      <div className="w-full flex items-center justify-center my-20">
         <img src={Banner} alt="" />
       </div>
       <div className="container mx-auto">

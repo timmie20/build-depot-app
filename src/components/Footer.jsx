@@ -8,7 +8,7 @@ import Mastercard from "../assets/paymentIcons/MasterCard.png";
 
 const Footer = () => {
   return (
-    <div className="mt-24 container mx-auto font-Inter lg:mt-44">
+    <div className="mt-24 max-w-[1300px] mx-auto font-Inter lg:mt-44">
       <div className=" flex flex-col font-normal gap-10 border-y-2 px-5 py-10 lg:flex-row lg:justify-between ">
         <div className="flex flex-col gap-5 items-center lg:w-[45%] lg:items-start lg:gap-10">
           <h1 className=" font-calSans text-orange-clr-full text-lg font-semibold md:text-[32px] lg:text-xl">

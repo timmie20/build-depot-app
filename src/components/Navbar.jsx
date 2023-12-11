@@ -1,14 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { MdOutlineMenu, MdClose } from "react-icons/md";
 import useToogle from "../Hooks/useToogle";
+import { useEffect } from "react";
 
 const Navbar = () => {
-  const [isMenuOpen, handleToggle] = useToogle(false);
+  const [isMenuOpen, setIsMenuOpen, handleToggle] = useToogle(false);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <div className="sticky w-full min-h-fit p-5 top-0 border-b-[1px] bg-white">
-      <nav className="container m-auto flex justify-between items-center font-calSans">
+      <nav className="max-w-[1300px] m-auto flex justify-between items-center font-calSans">
         <h1 className="text-orange-clr-full text-lg font-semibold md:text-[32px] lg:text-xl">
           BuildDepot
         </h1>
