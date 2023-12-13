@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import storeImage from "../assets/images/Product-image-container.png";
 import StarRating from "./StarRating";
 import { IoLocationOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { RiArrowDropDownLine, RiArrowUpSLine } from "react-icons/ri";
-import useToogle from "../Hooks/useToogle";
 
 const DistributorStore = () => {
   const storeInfo = [
@@ -18,7 +17,10 @@ const DistributorStore = () => {
     },
   ];
 
-  const [isExpanded, handleToggle] = useToogle(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const handleToogle = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   return (
     <div className="min-h-fit border-[1px] border-gray-100 py-[27px] px-4 rounded-lg md:flex md:items-center md:justify-between">
@@ -55,7 +57,7 @@ const DistributorStore = () => {
         {!isExpanded && (
           <div
             className="hidden font-Inter text-sm text-blue-500 md:flex md:items-center lg:hidden"
-            onClick={handleToggle}
+            onClick={handleToogle}
           >
             view more
             <RiArrowDropDownLine size={25} />
@@ -79,7 +81,7 @@ const DistributorStore = () => {
             </div>
             <div
               className="hidden font-Inter text-blue-500 text-sm md:flex md:items-center lg:hidden"
-              onClick={handleToggle}
+              onClick={handleToogle}
             >
               view less
               <RiArrowUpSLine size={16} />

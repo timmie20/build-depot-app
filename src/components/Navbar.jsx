@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { MdOutlineMenu, MdClose } from "react-icons/md";
-import useToogle from "../Hooks/useToogle";
 import { useEffect } from "react";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen, handleToggle] = useToogle(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
+
+  const handleToogle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="sticky w-full min-h-fit p-5 top-0 border-b-[1px] bg-white">
@@ -18,7 +21,7 @@ const Navbar = () => {
           BuildDepot
         </h1>
         <div className="block md:hidden">
-          {!isMenuOpen && <MdOutlineMenu size={24} onClick={handleToggle} />}
+          {!isMenuOpen && <MdOutlineMenu size={24} onClick={handleToogle} />}
         </div>
         {isMenuOpen && (
           <div
@@ -29,7 +32,7 @@ const Navbar = () => {
             }`}
           >
             <div className="flex flex-col items-end">
-              {isMenuOpen && <MdClose size={24} onClick={handleToggle} />}
+              {isMenuOpen && <MdClose size={24} onClick={handleToogle} />}
             </div>
             <div className="flex flex-col items-center gap-4">
               <NavLink to="/distributors">Distributors</NavLink>

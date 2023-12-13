@@ -64,22 +64,32 @@ const Invoice = () => {
           Choose Payment Method
         </h3>
         <div className="mt-4 flex justify-between items-center border-[1px] px-[18px] py-[13px] shadow-md">
-          <div className="flex flex-col gap-1 ">
+          <label className="flex flex-col gap-1 " htmlFor="card-payment">
             <h3 className="font-semibold text-sm md:text-[18px]">
               Pay with Debit/Credit Card, Bank transfer or USSD
             </h3>
             <p>You will be redirected to our secure checkout page</p>
-          </div>
-          <input type="radio" className="w-5 h-5 rounded-full" />
+          </label>
+          <input
+            id="card-payment"
+            type="radio"
+            name="payment-method"
+            className="w-5 h-5 rounded-full"
+          />
         </div>
         <div className="mt-4 flex justify-between items-center border-[1px] px-[18px] py-[13px] shadow-md">
-          <div className="flex flex-col gap-1 ">
+          <label className="flex flex-col gap-1 " htmlFor="credit">
             <h3 className="font-semibold text-sm md:text-[18px]">
               Pay on credit
             </h3>
             <p>You will be redirected to our external credit checkout page</p>
-          </div>
-          <input type="radio" className="w-5 h-5 rounded-full" />
+          </label>
+          <input
+            id="credit"
+            type="radio"
+            name="payment-method"
+            className="w-5 h-5 rounded-full"
+          />
         </div>
         <div className="flex justify-end items-end mt-10">
           <button
