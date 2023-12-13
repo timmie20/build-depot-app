@@ -27,6 +27,7 @@ export default {
         "orange-clr-100": "#F5BF55",
         "orange-clr-200": "#D97F64",
         "orange-clr-full": "#C74018",
+        "orange-clr-darker": "#8D2D11",
       },
     },
   },

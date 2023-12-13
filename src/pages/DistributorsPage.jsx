@@ -8,7 +8,7 @@ const DistributorsPage = () => {
   return (
     <div className="max-w-screen-xl mx-auto my-10 font-calSans px-5">
       <aside
-        className="flex items-center gap-3 text-gray-100 cursor-pointer"
+        className="w-fit flex items-center gap-3 text-gray-100 cursor-pointer"
         onClick={() => navigate("/")}
       >
         <svg
