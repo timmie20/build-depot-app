@@ -4,10 +4,42 @@ import Image2 from "../assets/images/Frame 30.png";
 import Image3 from "../assets/images/Frame 31.png";
 import Image4 from "../assets/images/Group.png";
 import Banner from "../assets/images/AD-BANNER.png";
-
 import Testimonials from "../components/Testimonials";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import DistributorsPage from "./DistributorsPage";
 
 const HomePage = () => {
+  const [location, setLocation] = useState("");
+  const [material, setMaterial] = useState("");
+  const [foundDistributor, setFoundDistributor] = useState([]);
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/distributors");
+      if (!res) {
+        throw new Error(`err fetching data: ${res.statusText}`);
+      }
+      const data = await res.json();
+      const distributor = data?.distributors.filter(
+        (shop) =>
+          shop.location === location && shop.materials.includes(material)
+      );
+      setFoundDistributor(distributor ? [distributor] : []);
+      console.log(foundDistributor);
+    } catch (err) {
+      console.log(err.message);
+    }
+    // if (!foundDistributor.length) {
+    //   navigate("/distributors");
+    // }
+  };
+
+  useEffect(() => {
+    handleSubmit();
+  }, []);
+
   return (
     <>
       <div className="mt-10 max-w-screen-xl mx-auto md:mt-14">
@@ -59,9 +91,11 @@ const HomePage = () => {
                 <select
                   id="location"
                   name="location"
-                  autoComplete="location-name"
                   className="block w-full rounded-lg border-0 h-12 pl-2 text-gray-200 text-sm ring-1 ring-gray-50"
+                  onChange={(e) => setLocation(e.target.value)}
+                  value={location}
                 >
+                  <option value="">select an option</option>
                   <option>Lagos</option>
                   <option>Abuja</option>
                 </select>
@@ -76,16 +110,23 @@ const HomePage = () => {
                 <select
                   id="material"
                   name="material"
-                  autoComplete="material-name"
                   className="block w-full rounded-lg border-0 h-12 pl-2 text-gray-200 text-sm ring-1 ring-gray-50"
+                  onChange={(e) => setMaterial(e.target.value)}
+                  value={material}
                 >
+                  <option value="">select an option</option>
                   <option>Cement</option>
                   <option>Grinite</option>
                 </select>
               </div>
-              <div className="w-full p-3 bg-orange-clr-full text-white text-sm text-center font-semibold rounded-lg sm:text-base">
+              <button
+                className="disabled:opacity-75 disabled:cursor-not-allowed w-full p-3 bg-orange-clr-full text-white text-sm text-center font-semibold rounded-lg cursor-pointer sm:text-base"
+                onClick={handleSubmit}
+                type="button"
+                disabled={!location || !material}
+              >
                 Search
-              </div>
+              </button>
             </form>
             <div className="hidden md:flex md:justify-end">
               <img src={Image4} alt="illustration image of shops locations" />
@@ -99,6 +140,7 @@ const HomePage = () => {
       <div className="container mx-auto">
         <Testimonials />
       </div>
+      {/* {show && <DistributorsPage foundDistributor={foundDistributor} />} */}
     </>
   );
 };
