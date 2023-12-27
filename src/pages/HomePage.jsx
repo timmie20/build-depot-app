@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image1 from "../assets/images/Frame 29.png";
 import Image2 from "../assets/images/Frame 30.png";
 import Image3 from "../assets/images/Frame 31.png";
 import Image4 from "../assets/images/Group.png";
 import Banner from "../assets/images/AD-BANNER.png";
 import Testimonials from "../components/Testimonials";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DistributorsPage from "./DistributorsPage";
+import { AppContext } from "../AppContext";
 
 const HomePage = () => {
-  const [location, setLocation] = useState("");
-  const [material, setMaterial] = useState("");
-  const [foundDistributor, setFoundDistributor] = useState([]);
+  const { foundDistributor, setFoundDistributor, location, setLocation, material, setMaterial } = useContext(AppContext)
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -26,19 +23,13 @@ const HomePage = () => {
         (shop) =>
           shop.location === location && shop.materials.includes(material)
       );
-      setFoundDistributor(distributor ? [distributor] : []);
+      distributor && setFoundDistributor(distributor)
       console.log(foundDistributor);
+      navigate("/distributors")
     } catch (err) {
       console.log(err.message);
     }
-    // if (!foundDistributor.length) {
-    //   navigate("/distributors");
-    // }
   };
-
-  useEffect(() => {
-    handleSubmit();
-  }, []);
 
   return (
     <>

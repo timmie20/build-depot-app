@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const StarRating = ({ store }) => {
-  const [currentRate, setCurrentRate] = useState(store.starRate);
+const StarRating = ({ distributor }) => {
+  const [currentRate, setCurrentRate] = useState(distributor?.starRate);
   return (
     <div className="flex items-center">
       {[...Array(5)].map((star, index) => {
@@ -17,7 +17,7 @@ const StarRating = ({ store }) => {
           </div>
         );
       })}
-      <p className="ml-1 font-normal text-dark-50">{store.review} reviews</p>
+      <p className="ml-1 font-normal text-dark-50">{distributor?.review} reviews</p>
     </div>
   );
 };
