@@ -9,23 +9,27 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../AppContext";
 
 const HomePage = () => {
-  const { foundDistributor, setFoundDistributor, location, setLocation, material, setMaterial } = useContext(AppContext)
+  const { setFoundDistributor, location, setLocation, material, setMaterial } =
+    useContext(AppContext);
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch("http://localhost:3000/distributors");
+      // API-KEY to google sheets document
+      const res = await fetch(
+        "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb"
+      );
       if (!res) {
         throw new Error(`err fetching data: ${res.statusText}`);
       }
       const data = await res.json();
-      const distributor = data?.distributors.filter(
+      const distributor = data?.filter(
         (shop) =>
-          shop.location === location && shop.materials.includes(material)
+          shop.Location === location && shop.Materials.includes(material)
       );
-      distributor && setFoundDistributor(distributor)
-      console.log(foundDistributor);
-      navigate("/distributors")
+      console.log(distributor);
+      distributor && setFoundDistributor(distributor);
+      navigate("/distributors");
     } catch (err) {
       console.log(err.message);
     }

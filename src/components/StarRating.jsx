@@ -6,7 +6,7 @@ const StarRating = ({ distributor }) => {
   const [currentRate, setCurrentRate] = useState(distributor?.starRate);
   return (
     <div className="flex items-center">
-      {[...Array(5)].map((star, index) => {
+      {[...Array(5)].map((_, index) => {
         const starNum = index + 1;
         return (
           <div key={index}>
@@ -17,7 +17,9 @@ const StarRating = ({ distributor }) => {
           </div>
         );
       })}
-      <p className="ml-1 font-normal text-dark-50">{distributor?.review} reviews</p>
+      <p className="ml-1 font-normal text-dark-50">
+        {distributor?.Review} review
+      </p>
     </div>
   );
 };

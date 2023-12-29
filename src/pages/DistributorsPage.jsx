@@ -5,8 +5,8 @@ import { AppContext } from "../AppContext";
 import { useNavigate } from "react-router-dom";
 
 const DistributorsPage = () => {
-  const { foundDistributor } = useContext(AppContext)
-  const navigate = useNavigate()
+  const { foundDistributor } = useContext(AppContext);
+  const navigate = useNavigate();
 
   return (
     <div className="max-w-screen-xl mx-auto my-10 font-calSans px-5">
@@ -34,21 +34,27 @@ const DistributorsPage = () => {
       </aside>
       <div className="flex items-center justify-between my-6 lg:my-12">
         <p className="text-gray-300 text-lg md:font-semibold md:text-[26px] lg:text-[32px]">
-          {foundDistributor.length + ' Distributors Near You'}
+          {foundDistributor.length + " Distributors Near You"}
         </p>
         <div className="flex items-center gap-3 text-orange-clr-full border-[1px] border-orange-clr-full rounded-md px-3 py-1 cursor-pointer">
           <span className="font-Inter font-norma lg:font-semibold">Filter</span>
           <BsFilterRight size={20} />
         </div>
       </div>
-      
-      {foundDistributor.length <= 0 ? <h1>No distributors available</h1> :
-      foundDistributor?.map(distributor => {
-        return (
-          <DistributorStore distributor={distributor} key={distributor.id} />
-        )
-      } )
-    }
+
+      {foundDistributor.length <= 0 ? (
+        <h1>No distributors available</h1>
+      ) : (
+        foundDistributor?.map((distributor, index) => {
+          return (
+            <DistributorStore
+              distributor={distributor}
+              key={index}
+              index={index}
+            />
+          );
+        })
+      )}
     </div>
   );
 };
