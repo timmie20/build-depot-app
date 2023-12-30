@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky w-full min-h-fit p-5 top-0 border-b-[1px] bg-white">
+    <div className="sticky w-full min-h-fit p-5 top-0 border-b-[1px] bg-white z-[999]">
       <nav className="max-w-[1300px] m-auto flex justify-between items-center font-calSans">
         <h1 className="text-orange-clr-full text-lg font-semibold md:text-[32px] lg:text-xl">
           BuildDepot

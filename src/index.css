@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+.first-col {
+    background-image: url("./assets/images/Frame4076415.svg"), url("./assets/images/Frame4076409.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position-x: right, left;
+    background-position-y: bottom top;
+}
+
+.second-col {
+    background-image: url("./assets/images/Ellipse3.svg");
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+}
+
+.third-col {
+    background-image: url("./assets/images/Polygon5.svg");
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: right;
+}
+
+.banner {
+    background-image: url("./assets/images/Polygon6.svg");
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: left;
+}
+
+@media (max-width: 770px) {
+    .first-col {
+        background-image: url("./assets/images/Frame4076415.svg");
+        background-repeat: no-repeat;
+        background-position-y: bottom;
+        background-position-x: right;
+        padding-top: 56px;
+    }
+}
