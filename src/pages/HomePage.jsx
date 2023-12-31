@@ -17,7 +17,7 @@ const HomePage = () => {
     try {
       // API-KEY to google sheets document
       const res = await fetch(
-        "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb"
+        "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb/tabs/Distributors"
       );
       if (!res) {
         throw new Error(`err fetching data: ${res.statusText}`);

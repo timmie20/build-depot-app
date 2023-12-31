@@ -4,8 +4,8 @@ import Layout from "./components/Layout";
 import DistributorsPage from "./pages/DistributorsPage";
 import HomePage from "./pages/HomePage";
 import InvoiceGenerator from "./pages/InvoiceGenerator";
-import Invoice from "./pages/Invoice";
 import { AppProvider } from "./AppContext";
+import InvoicePage from "./pages/InvoicePage";
 
 const App = () => {
   return (
@@ -16,7 +16,9 @@ const App = () => {
           <Route path="/distributors" element={<DistributorsPage />} />
         </Route>
         <Route path="/invoiceGenerator" element={<InvoiceGenerator />} />
-        <Route path="invoiceGenerator/invoice" element={<Invoice />} />
+        <Route path="/invoice" element={<InvoicePage />}>
+          <Route path=":invoiceId" element={<InvoicePage />} />
+        </Route>
       </Routes>
     </AppProvider>
   );
