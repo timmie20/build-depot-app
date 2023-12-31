@@ -6,20 +6,23 @@ import HomePage from "./pages/HomePage";
 import InvoiceGenerator from "./pages/InvoiceGenerator";
 import { AppProvider } from "./AppContext";
 import InvoicePage from "./pages/InvoicePage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <AppProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/distributors" element={<DistributorsPage />} />
-        </Route>
-        <Route path="/invoiceGenerator" element={<InvoiceGenerator />} />
-        <Route path="/invoice" element={<InvoicePage />}>
-          <Route path=":invoiceId" element={<InvoicePage />} />
-        </Route>
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/distributors" element={<DistributorsPage />} />
+          </Route>
+          <Route path="/invoiceGenerator" element={<InvoiceGenerator />} />
+          <Route path="/invoice" element={<InvoicePage />}>
+            <Route path=":invoiceId" element={<InvoicePage />} />
+          </Route>
+        </Routes>
+      </ScrollToTop>
     </AppProvider>
   );
 };

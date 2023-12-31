@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Loader from "../assets/images/loader.svg"
 import CementBag from "../assets/images/Group 2019.png"
 import Support from "../assets/images/support.png"
 import Image4 from "../assets/images/Group.png";
@@ -10,15 +11,18 @@ import { AppContext } from "../AppContext";
 const HomePage = () => {
   const { setFoundDistributor, location, setLocation, material, setMaterial } =
     useContext(AppContext);
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    setLoading(true)
     try {
       // API-KEY to google sheets document
       const res = await fetch(
         "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb/tabs/Distributors"
       );
       if (!res) {
+        setLoading(false)
         throw new Error(`err fetching data: ${res.statusText}`);
       }
       const data = await res.json();
@@ -26,11 +30,13 @@ const HomePage = () => {
         (shop) =>
           shop.Location === location && shop.Materials.includes(material)
       );
+      setLoading(false)
       console.log(distributor);
       distributor && setFoundDistributor(distributor);
       navigate("/distributors");
     } catch (err) {
       console.log(err.message);
+      setLoading(false)
     }
   };
 
@@ -129,12 +135,12 @@ const HomePage = () => {
                 </select>
               </div>
               <button
-                className="disabled:opacity-75 disabled:cursor-not-allowed w-full p-3 bg-orange-clr-full text-white text-sm text-center font-semibold rounded-lg cursor-pointer sm:text-base"
+                className="disabled:opacity-75 flex items-center justify-center disabled:cursor-not-allowed w-full p-3 bg-orange-clr-full text-white text-sm text-center font-semibold rounded-lg cursor-pointer sm:text-base"
                 onClick={handleSubmit}
                 type="button"
-                disabled={!location || !material}
+                disabled={!location || !material || loading}
               >
-                Search
+                {loading ? <img src={Loader} alt="" /> : 'Search'}
               </button>
             </form>
             <div className="hidden md:flex md:justify-end">
