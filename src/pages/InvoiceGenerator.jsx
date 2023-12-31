@@ -2,16 +2,19 @@ import { useFormik } from "formik";
 import React from "react";
 import { useState, useEffect } from "react";
 import { IoMdAdd } from "react-icons/io";
-import { useNavigate, useParams } from "react-router-dom";
 import PaymentModal from "../components/PaymentModal";
 import { v4 as ranID } from "uuid";
 import AddProduct from "../components/AddProduct";
+import CopyLInkModal from "../components/CopyLInkModal";
+import Loader from "../assets/images/loader.svg"
 
 const InvoiceGenerator = () => {
+  const [openLinkModal, setOpenLinkModal] = useState(false)
   const [id, setId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [addProduct, setAddProduct] = useState([1]);
-  const navigate = useNavigate();
+  const [url, setUrl] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleGenerateLink = (e) => {
     e.preventDefault();
@@ -19,6 +22,7 @@ const InvoiceGenerator = () => {
   };
 
   const makeApiRequest = async () => {
+    setLoading(true)
     try {
       const res = await fetch(
         "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb/tabs/OrderDetails",
@@ -46,10 +50,13 @@ const InvoiceGenerator = () => {
           ]),
         }
       );
-      const addedData = res.json();
-      navigate(`/invoice/:${id}`);
+      setLoading(false)
+      setUrl('https://builddepot.netlify.app/invoice/:' + id)
+      setOpenLinkModal(true)
     } catch (err) {
+      setLoading(false)
       console.log(err.message);
+      setOpenLinkModal(false)
     }
   };
 
@@ -214,17 +221,18 @@ const InvoiceGenerator = () => {
           </div>
           <div className="w-[50%] mx-auto flex items-center justify-center">
             <button
-              className="disabled:opacity-30 w-full py-2 px-4 bg-orange-clr-full text-white rounded-md mt-8"
+              className="disabled:opacity-30 flex items-center justify-center w-full py-2 px-4 bg-orange-clr-full text-white rounded-md mt-8"
               type="submit"
               onClick={handleGenerateLink}
-              disabled={isSubmitting}
+              disabled={loading}
             >
-              {isSubmitting ? "Processing..." : " Generate Invoice Link"}
+              {loading ? <img src={Loader} alt="" /> : " Generate Invoice Link"}
             </button>
           </div>
         </form>
       </div>
       {isOpen && <PaymentModal isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {openLinkModal && <CopyLInkModal setOpenLinkModal={setOpenLinkModal} url={url} />}
     </>
   );
 };
