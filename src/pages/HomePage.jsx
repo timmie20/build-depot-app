@@ -36,6 +36,7 @@ const HomePage = () => {
       navigate("/distributors");
     } catch (err) {
       console.log(err.message);
+      setLoading(false)
     }
   };
 
