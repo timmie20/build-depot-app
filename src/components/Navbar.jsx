@@ -51,9 +51,9 @@ const Navbar = () => {
             <NavLink to="/support">Support</NavLink>
           </div>
 
-          <div className="bg-orange-clr-full py-[10px] px-[20px] rounded-sm text-white">
+          <a href="#seller" className="bg-orange-clr-full py-[10px] px-[20px] rounded-sm text-white">
             Get started
-          </div>
+          </a>
         </div>
       </nav>
     </div>
