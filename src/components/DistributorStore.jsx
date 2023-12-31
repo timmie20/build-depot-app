@@ -83,7 +83,7 @@ const DistributorStore = ({ distributor, index }) => {
         </div>
 
         <div className="hidden lg:block text-white bg-orange-clr-full py-[10px] px-5 rounded-md font-semibold">
-          <Link to="#">contact on whatsapp</Link>
+        <a target="_blank" href={`https://wa.me/+2349157505112?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
         </div>
       </div>
     </>
