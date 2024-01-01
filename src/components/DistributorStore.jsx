@@ -28,7 +28,7 @@ const DistributorStore = ({ distributor, index }) => {
               <p>{distributor?.Location}</p>
             </div>
             <div className="text-white bg-orange-clr-full p-2 rounded-md font-semibold sm:hidden">
-              <a href={`https://wa.me/+2349157505112?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
+              <a href={`https://wa.me/+2347015990636?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const DistributorStore = ({ distributor, index }) => {
                   <p className="font-Inter font-normal">5 Cement Bags</p>
                 </aside>
                 <div className="text-white bg-orange-clr-full p-2 rounded-md font-semibold">
-                <a target="_blank" href={`https://wa.me/+2349157505112?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
+                <a target="_blank" href={`https://wa.me/+2347015990636?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
                 </div>
               </div>
               <div
@@ -83,7 +83,7 @@ const DistributorStore = ({ distributor, index }) => {
         </div>
 
         <div className="hidden lg:block text-white bg-orange-clr-full py-[10px] px-5 rounded-md font-semibold">
-        <a target="_blank" href={`https://wa.me/+2349157505112?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
+        <a target="_blank" href={`https://wa.me/+2347015990636?text=Hi+I'm+in+need+of+${distributor.Materials}+from+${distributor.Shopname}+in+${distributor.Location}`}>contact on whatsapp</a>
         </div>
       </div>
     </>
