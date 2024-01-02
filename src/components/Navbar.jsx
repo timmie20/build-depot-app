@@ -47,7 +47,7 @@ const Navbar = () => {
         )}
         <div className="hidden md:flex items-center justify-between gap-10 text-base font-semibold text-gray-100 lg:gap-14 lg:text-lg">
           <div className="flex gap-6">
-            <a href="#about">About us</a>
+            <NavLink to="/about">About us</NavLink>
             <NavLink to="/support">Support</NavLink>
           </div>
 

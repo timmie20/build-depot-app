@@ -142,9 +142,9 @@ const HomePage = () => {
                   value={location}
                 >
                   <option value="">select an option</option>
-                  {locationOptions?.map((location) => {
+                  {locationOptions?.map((location, index) => {
                     if (location !== null)
-                      return <option>{location}</option>
+                      return <option key={index}>{location}</option>
                   })}
                 </select>
               </div>
@@ -163,9 +163,9 @@ const HomePage = () => {
                   value={material}
                 >
                   <option value="">select an option</option>
-                  {materialOptions?.map((material) => {
+                  {materialOptions?.map((material, index) => {
                     if (material !== null)
-                      return <option>{material}</option>
+                      return <option key={index}>{material}</option>
                   })}
                 </select>
               </div>
