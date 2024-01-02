@@ -35,13 +35,12 @@ const Navbar = () => {
               {isMenuOpen && <MdClose size={24} onClick={handleToogle} />}
             </div>
             <div className="flex flex-col items-center gap-4">
-              <NavLink to="/distributors">Distributors</NavLink>
-              <a href="#about">About us</a>
+              <NavLink to="/about">About us</NavLink>
               <NavLink to="/support">Support</NavLink>
 
-              <div className="bg-orange-clr-full py-[10px] px-[12px] rounded-sm">
+              <Link to="/" className="bg-orange-clr-full py-[10px] px-[12px] rounded-sm">
                 Get started
-              </div>
+              </Link>
             </div>
           </div>
         )}
