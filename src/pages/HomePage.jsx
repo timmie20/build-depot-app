@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Loader from "../assets/images/loader.svg"
 import CementBag from "../assets/images/Group 2019.png"
 import Support from "../assets/images/support.png"
@@ -12,7 +12,38 @@ const HomePage = () => {
   const { setFoundDistributor, location, setLocation, material, setMaterial } =
     useContext(AppContext);
   const [loading, setLoading] = useState(false)
+  const [locationOptions, setLocationOptions] = useState()
+  const [materialOptions, setMaterialOptions] = useState([])
   const navigate = useNavigate();
+
+  useEffect(() => {
+    availableLocations()
+  }, [])
+
+  const availableLocations = async () => {
+    console.log('locading...')
+    try {
+      // API-KEY to google sheets document
+      const res = await fetch(
+        "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb/tabs/LocationsAndMaterials"
+      );
+      if (!res) {
+        setLoading(false)
+        throw new Error(`err fetching data: ${res.statusText}`);
+      }
+      const data = await res.json();
+      const locations = data.map((item) => {
+        return item.Locations
+      })
+      const materials = data.map((item) => {
+        return item.Materials
+      })
+      setLocationOptions(locations)
+      setMaterialOptions(materials)
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
 
   const handleSubmit = async () => {
     setLoading(true)
@@ -111,8 +142,10 @@ const HomePage = () => {
                   value={location}
                 >
                   <option value="">select an option</option>
-                  <option>Lagos</option>
-                  <option>Abuja</option>
+                  {locationOptions?.map((location, index) => {
+                    if (location !== null)
+                      return <option key={index}>{location}</option>
+                  })}
                 </select>
               </div>
               <div className="flex flex-col gap-5 w-full">
@@ -130,8 +163,10 @@ const HomePage = () => {
                   value={material}
                 >
                   <option value="">select an option</option>
-                  <option>Cement</option>
-                  <option>Grinite</option>
+                  {materialOptions?.map((material, index) => {
+                    if (material !== null)
+                      return <option key={index}>{material}</option>
+                  })}
                 </select>
               </div>
               <button

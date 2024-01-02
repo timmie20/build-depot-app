@@ -7,6 +7,8 @@ import InvoiceGenerator from "./pages/InvoiceGenerator";
 import { AppProvider } from "./AppContext";
 import InvoicePage from "./pages/InvoicePage";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 const App = () => {
   return (
@@ -16,11 +18,13 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/distributors" element={<DistributorsPage />} />
+            <Route path="/about" element={<About />} />
           </Route>
           <Route path="/invoiceGenerator" element={<InvoiceGenerator />} />
           <Route path="/invoice" element={<InvoicePage />}>
             <Route path=":invoiceId" element={<InvoicePage />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </ScrollToTop>
     </AppProvider>

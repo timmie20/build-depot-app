@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { MdOutlineMenu, MdClose } from "react-icons/md";
 import { useEffect } from "react";
 
@@ -35,13 +35,12 @@ const Navbar = () => {
               {isMenuOpen && <MdClose size={24} onClick={handleToogle} />}
             </div>
             <div className="flex flex-col items-center gap-4">
-              <NavLink to="/distributors">Distributors</NavLink>
               <NavLink to="/about">About us</NavLink>
               <NavLink to="/support">Support</NavLink>
 
-              <div className="bg-orange-clr-full py-[10px] px-[12px] rounded-sm">
+              <Link to="/" className="bg-orange-clr-full py-[10px] px-[12px] rounded-sm">
                 Get started
-              </div>
+              </Link>
             </div>
           </div>
         )}

@@ -15,9 +15,7 @@ const Footer = () => {
             BuildDepot
           </h1>
           <p className="text-base text-center text-dark-50 lg:text-left lg:text-[18px]">
-            Est diam debitis an, error recusabo id pro, quo eripuit civibus ut.
-            Mel ut tamquam erroribus, ad nonumy vituperata mei.Et qui falli
-            latine consequuntur. In appellantur concludaturque pro.
+          At BuildDepot, we're passionate about supporting the construction community. We believe everyone deserves access to the tools and resources they need to succeed.
           </p>
           <div className="flex gap-3">
             <img src={Facebook} alt="" />
