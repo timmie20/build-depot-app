@@ -7,6 +7,7 @@ import InvoiceGenerator from "./pages/InvoiceGenerator";
 import { AppProvider } from "./AppContext";
 import InvoicePage from "./pages/InvoicePage";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/invoice" element={<InvoicePage />}>
             <Route path=":invoiceId" element={<InvoicePage />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </ScrollToTop>
     </AppProvider>

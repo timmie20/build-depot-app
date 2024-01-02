@@ -32,7 +32,6 @@ const HomePage = () => {
         throw new Error(`err fetching data: ${res.statusText}`);
       }
       const data = await res.json();
-      console.log(data)
       const locations = data.map((item) => {
         return item.Locations
       })
@@ -41,7 +40,6 @@ const HomePage = () => {
       })
       setLocationOptions(locations)
       setMaterialOptions(materials)
-      console.log(locationOptions)
     } catch (err) {
       console.log(err.message);
     }

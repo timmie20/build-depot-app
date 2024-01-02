@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { MdOutlineMenu, MdClose } from "react-icons/md";
 import { useEffect } from "react";
 
@@ -36,7 +36,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col items-center gap-4">
               <NavLink to="/distributors">Distributors</NavLink>
-              <NavLink to="/about">About us</NavLink>
+              <a href="#about">About us</a>
               <NavLink to="/support">Support</NavLink>
 
               <div className="bg-orange-clr-full py-[10px] px-[12px] rounded-sm">
@@ -47,7 +47,7 @@ const Navbar = () => {
         )}
         <div className="hidden md:flex items-center justify-between gap-10 text-base font-semibold text-gray-100 lg:gap-14 lg:text-lg">
           <div className="flex gap-6">
-            <NavLink to="/about">About us</NavLink>
+            <a href="#about">About us</a>
             <NavLink to="/support">Support</NavLink>
           </div>
 
