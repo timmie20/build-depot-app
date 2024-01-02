@@ -4,17 +4,17 @@ import { useState, useEffect } from "react";
 import { IoMdAdd } from "react-icons/io";
 import PaymentModal from "../components/PaymentModal";
 import { v4 as ranID } from "uuid";
-import AddProduct from "../components/AddProduct";
+import Product from "../components/Product";
 import CopyLInkModal from "../components/CopyLInkModal";
-import Loader from "../assets/images/loader.svg"
+import Loader from "../assets/images/loader.svg";
 
 const InvoiceGenerator = () => {
-  const [openLinkModal, setOpenLinkModal] = useState(false)
+  const [openLinkModal, setOpenLinkModal] = useState(false);
   const [id, setId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [addProduct, setAddProduct] = useState([1]);
-  const [url, setUrl] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [productList, setProductList] = useState([{ id: 1 }]);
+  const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleGenerateLink = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const InvoiceGenerator = () => {
   };
 
   const makeApiRequest = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const res = await fetch(
         "https://sheet.best/api/sheets/1e1a7ba3-50f2-4fed-832a-95e56f3318fb/tabs/OrderDetails",
@@ -50,13 +50,13 @@ const InvoiceGenerator = () => {
           ]),
         }
       );
-      setLoading(false)
-      setUrl('https://builddepot.netlify.app/invoice/:' + id)
-      setOpenLinkModal(true)
+      setLoading(false);
+      setUrl("https://builddepot.netlify.app/invoice/:" + id);
+      setOpenLinkModal(true);
     } catch (err) {
-      setLoading(false)
+      setLoading(false);
       console.log(err.message);
-      setOpenLinkModal(false)
+      setOpenLinkModal(false);
     }
   };
 
@@ -83,8 +83,9 @@ const InvoiceGenerator = () => {
   });
 
   const handleAddNewProduct = () => {
-    setAddProduct([...addProduct, addProduct.length + 1]); // Add a new product field
+    setProductList([...productList, { id: productList.length + 1 }]); // Add a new product field
   };
+
   return (
     <>
       <div className="max-w-screen-xl mx-auto my-10 font-calSans">
@@ -198,11 +199,14 @@ const InvoiceGenerator = () => {
               </aside>
             </div>
 
-            {addProduct.map((product, index) => (
-              <AddProduct
+            {productList.map((_, index) => (
+              <Product
+                id={index + 1}
                 key={index}
                 handleChange={handleChange}
                 values={values}
+                productList={productList}
+                setProductList={setProductList}
               />
             ))}
 
@@ -232,7 +236,9 @@ const InvoiceGenerator = () => {
         </form>
       </div>
       {isOpen && <PaymentModal isOpen={isOpen} setIsOpen={setIsOpen} />}
-      {openLinkModal && <CopyLInkModal setOpenLinkModal={setOpenLinkModal} url={url} />}
+      {openLinkModal && (
+        <CopyLInkModal setOpenLinkModal={setOpenLinkModal} url={url} />
+      )}
     </>
   );
 };

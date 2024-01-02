@@ -1,6 +1,14 @@
 import React from "react";
+import { IoMdRemove } from "react-icons/io";
 
-const AddProduct = ({ handleChange, values }) => {
+const Product = ({ handleChange, values, productList, setProductList, id }) => {
+  const handleRemoveNewProduct = () => {
+    if (productList.length > 1) {
+      setProductList(productList.filter((item) => item.id !== id));
+    }
+    console.log(id);
+  };
+
   return (
     <>
       <div className="flex flex-col gap-3">
@@ -49,8 +57,17 @@ const AddProduct = ({ handleChange, values }) => {
           />
         </div>
       </div>
+      {productList.length > 1 && (
+        <aside
+          className="font-Inter flex items-center text-orange-clr-full cursor-pointer justify-end"
+          onClick={handleRemoveNewProduct}
+        >
+          <p>Remove product</p>
+          <IoMdRemove />
+        </aside>
+      )}
     </>
   );
 };
 
-export default AddProduct;
+export default Product;
