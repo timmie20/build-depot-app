@@ -32,6 +32,7 @@ const Product = ({ handleChange, values, productList, setProductList, id }) => {
             onChange={handleChange}
             value={values.bagsNumber}
             className="border-[1px] w-full rounded-md border-gray-100 h-[30px] px-4 lg:h-[48px] font-Inter font-normal"
+            placeholder="Digits only"
           />
         </div>
         <div className="w-full flex flex-col gap-3">
@@ -43,6 +44,7 @@ const Product = ({ handleChange, values, productList, setProductList, id }) => {
             onChange={handleChange}
             value={values.unitCost}
             className="border-[1px] w-full rounded-md border-gray-100 h-[30px] px-4 lg:h-[48px] font-Inter font-normal"
+            placeholder="Digits only"
           />
         </div>
         <div className="w-full flex flex-col gap-3">
@@ -54,10 +56,11 @@ const Product = ({ handleChange, values, productList, setProductList, id }) => {
             onChange={handleChange}
             value={values.totalCost}
             className="border-[1px] w-full rounded-md border-gray-100 h-[30px] px-4 lg:h-[48px] font-Inter font-normal"
+            placeholder="Digits only"
           />
         </div>
       </div>
-      {productList.length > 1 && (
+      {/* {productList.length > 1 && (
         <aside
           className="font-Inter flex items-center text-orange-clr-full cursor-pointer justify-end"
           onClick={handleRemoveNewProduct}
@@ -65,7 +68,7 @@ const Product = ({ handleChange, values, productList, setProductList, id }) => {
           <p>Remove product</p>
           <IoMdRemove />
         </aside>
-      )}
+      )} */}
     </>
   );
 };

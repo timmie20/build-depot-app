@@ -12,7 +12,7 @@ const InvoiceGenerator = () => {
   const [openLinkModal, setOpenLinkModal] = useState(false);
   const [id, setId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [productList, setProductList] = useState([{ id: 1 }]);
+  // const [productList, setProductList] = useState([{ id: 1 }]);
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -82,9 +82,9 @@ const InvoiceGenerator = () => {
     handleGenerateLink,
   });
 
-  const handleAddNewProduct = () => {
-    setProductList([...productList, { id: productList.length + 1 }]); // Add a new product field
-  };
+  // const handleAddNewProduct = () => {
+  //   setProductList([...productList, { id: productList.length + 1 }]); // Add a new product field
+  // };
 
   return (
     <>
@@ -190,16 +190,18 @@ const InvoiceGenerator = () => {
               <h3 className="text-base md:text-[24px] text-gray-300">
                 Product Infomation
               </h3>
-              <aside
+              {/* <aside
                 className="font-Inter flex items-center text-orange-clr-full cursor-pointer"
                 onClick={handleAddNewProduct}
               >
                 <p>Add new product</p>
                 <IoMdAdd size={22} />
-              </aside>
+              </aside> */}
             </div>
 
-            {productList.map((_, index) => (
+            <Product values={values} handleChange={handleChange} />
+
+            {/* {productList.map((_, index) => (
               <Product
                 id={index + 1}
                 key={index}
@@ -208,7 +210,7 @@ const InvoiceGenerator = () => {
                 productList={productList}
                 setProductList={setProductList}
               />
-            ))}
+            ))} */}
 
             <div className="flex items-center justify-between">
               <h3 className="text-base md:text-[24px] text-gray-300">
