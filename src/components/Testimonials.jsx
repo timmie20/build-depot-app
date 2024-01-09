@@ -5,42 +5,32 @@ const Testimonials = () => {
     {
       id: 1,
       comment:
-        "I was really impressed with the quality of the materials I received from this site. They're the real deal and they delivered everything right to my doorstep. I'll definitely be using them again for my next project.",
+      "BuildDepot saved our projects! Before, cash flow issues would stall everything. Now, we have the flexibility to manage projects efficiently without the pressure.",
       avatarImg:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      name: "kevin heart",
+        "https://images.unsplash.com/photo-1509305717900-84f40e786d82?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJsYWNrJTIwcGVvcGxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+      name: "Sunday Joshua",
       location: "Lagos",
       starRating: "4.3",
     },
     {
       id: 2,
       comment:
-        "I was hesitant to buy building materials online, but this site made it so easy. The selection is amazing and the prices are unbeatable. I'm so glad I gave them a chance! ",
+      "Excellent customer service! Got my credit application approved in minutes. 5 stars!",
       avatarImg:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      name: "James Bond",
+        "https://images.unsplash.com/photo-1508243529287-e21914733111?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGJsYWNrJTIwcGVvcGxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+      name: "Umar Samuel",
       location: "Abuja",
       starRating: "5.0",
     },
     {
       id: 3,
       comment:
-        "I was skeptical about using the Buy Now Pay Later feature, but it really helped me out when I was short on cash. The process was straightforward and I was able to get all the materials I needed without any stress.",
+      "No drama, just cement. Easy credit, happy purchase. Will definitely use BuildDepot again.",
       avatarImg:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      name: "Rile Barwash",
+        "https://plus.unsplash.com/premium_photo-1682148296943-b0db4eadb8d7?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGJsYWNrJTIwcGVvcGxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+      name: "Sani David",
       location: "America",
       starRating: "4.5",
-    },
-    {
-      id: 4,
-      comment:
-        "I was really impressed with the quality of the materials I received from this site. They're the real deal and they delivered everything right to my doorstep. I'll definitely be using them again for my next project.",
-      avatarImg:
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      name: "Kira losarin",
-      location: "lagos",
-      starRating: "4.3",
     },
   ];
   return (
